@@ -253,10 +253,16 @@ def render_comment(comment):
 def fix_scale(data):
     if data == 1:
         return None
+    if data == "1,1":
+	return None
+
     return data
 
 
 def fix_units(data):
+    if data is None:
+        return
+
     if data == 'kcal / min':
         data = 'kcal/min'
     return data.strip()
